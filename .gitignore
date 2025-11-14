@@ -3,4 +3,5 @@ feedback/recipients/*
 !feedback/recipients/recipient_template.md
 
 # Ignore personal contributions and reflection drafts
+reflection/contributions/*
 reflection_draft/*
