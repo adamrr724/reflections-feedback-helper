@@ -9,15 +9,15 @@ A structured workspace for managing your GitHub performance reflections and peer
 ### Clone This Repository
 
 ```bash
-git clone <repository-url>
-cd reflections
+git clone https://github.com/adamrr724/reflections-feedback-helper.git
+cd reflections-feedback-helper
 ```
 
 Or if you prefer SSH:
 
 ```bash
-git clone git@github.com:<username>/reflections.git
-cd reflections
+git clone git@github.com:adamrr724/reflections-feedback-helper.git
+cd reflections-feedback-helper
 ```
 
 Then open the folder in VS Code:
@@ -148,6 +148,14 @@ This will create a file in `reflection/contributions/` with your:
 ### Step 2: Document Additional Accomplishments
 
 Fill out these files in `reflection/contributions/`:
+
+**`support-metrics.md`** (For Support Engineers)
+- Fill in your CSAT score (target ≥4.5)
+- Fill in your IR Met percentage (target ≥95%)
+- Document tickets solved and complexity vs squad baseline
+- Track escalations filed (break down by Sev1/Sev2/Other)
+- Note collaboration, documentation, and training contributions
+- Reference `support-expectations.md` for level-specific metric weights
 
 **`sparkle_tracking.md`**
 - Track internal recognition (Sparkles, kudos)

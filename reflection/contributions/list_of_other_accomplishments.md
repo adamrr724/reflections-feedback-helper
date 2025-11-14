@@ -1,3 +1,2 @@
 Accomplishments from this cycle:
 
-- 
