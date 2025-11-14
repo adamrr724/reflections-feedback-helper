@@ -69,7 +69,7 @@ GitHub MCP allows you to pull your contributions data, access GitHub Copilot Spa
 
 #### Option A: One-Click Installation (Easiest)
 
-Click this link to automatically install and configure GitHub MCP:
+Click this link to automatically install and configure GitHub MCP for VS Code:
 
 **[Install GitHub MCP Server](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D)**
 
