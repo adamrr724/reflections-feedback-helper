@@ -220,7 +220,7 @@ The draft will answer the three official FY26 questions:
 Copy the template for your recipient:
 
 ```bash
-cp feedback/recipient_template.md feedback/recipients/[name]_notes.md
+cp feedback/recipients/recipient_template.md feedback/recipients/[name]_notes.md
 ```
 
 ### Step 2: Gather Your Thoughts
