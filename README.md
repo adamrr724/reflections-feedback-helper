@@ -1,377 +1,125 @@
 # GitHub Reflections & Feedback Workspace
 
-A structured workspace for managing your GitHub performance reflections and peer feedback using AI assistance and GitHub MCP (Model Context Protocol) integration.
+A guided workspace for writing performance reflections and peer feedback. Copilot walks you through the entire process—pulling your GitHub contributions, prompting for metrics, and drafting your responses.
 
 ---
 
-## � Quick Start
-
-### Clone This Repository
+## Quick Start
 
 ```bash
 git clone https://github.com/adamrr724/reflections-feedback-helper.git
 cd reflections-feedback-helper
-```
-
-Or if you prefer SSH:
-
-```bash
-git clone git@github.com:adamrr724/reflections-feedback-helper.git
-cd reflections-feedback-helper
-```
-
-Then open the folder in VS Code:
-
-```bash
 code .
 ```
 
----
-
-## �📋 Table of Contents
-
-- [Quick Start](#quick-start)
-- [Prerequisites](#prerequisites)
-- [Setup & Configuration](#setup--configuration)
-- [Writing Your Reflection](#writing-your-reflection)
-- [Providing Peer Feedback](#providing-peer-feedback)
-- [Workspace Structure](#workspace-structure)
-- [Tips & Best Practices](#tips--best-practices)
+Then just say: **"Start my reflection"** or **"Write feedback for [name]"**
 
 ---
 
 ## Prerequisites
 
-- **VS Code** (latest version)
-- **GitHub Copilot subscription** (individual, business, or enterprise)
-- **GitHub Copilot extension** installed in VS Code
-- **Authenticated GitHub Copilot** - You must be signed into GitHub Copilot in VS Code
-- **MCP support** - Built into VS Code when Copilot is installed
-- **GitHub account** with access to your contributions and activity
+- **VS Code** with **GitHub Copilot** extension installed and signed in
+- **GitHub account** with access to your repositories
 
-### Quick Check: Is Copilot Ready?
-
-1. Open VS Code
-2. Look for the GitHub Copilot icon in the bottom right status bar
-3. Click it and ensure you're signed in
-4. If not installed, search for "GitHub Copilot" in the Extensions marketplace and install it
-5. Authenticate with your GitHub account when prompted
+That's it! MCP configuration is included and loads automatically.
 
 ---
 
-## Setup & Configuration
+## How It Works
 
-### 1. Configure GitHub MCP
+### For Reflections
 
-GitHub MCP allows you to pull your contributions data, access GitHub Copilot Spaces, and integrate GitHub data into your workflow.
+Just say: **"Start my reflection"**
 
-> **Note:** MCP support is built into VS Code when you have GitHub Copilot installed. You just need to configure which MCP servers to use.
+Copilot will guide you through:
 
-#### Option A: One-Click Installation (Easiest)
+1. **📋 Pull official questions** — Gets the latest from the IC Reflections FY26 Space
+2. **📅 Ask for your reflection period** — e.g., "July 2025 - December 2025"
+3. **🔄 Pull your GitHub contributions** — PRs, reviews, issues, docs automatically gathered
+4. **📊 Prompt for support metrics** — CSAT, IR Met, tickets, escalations (one at a time)
+5. **✨ Ask for other accomplishments** — Training, mentoring, cross-team work
+6. **📝 Show contributions summary** — Review and edit before drafting
+7. **✍️ Draft your reflection** — Answers each official question with your evidence
+8. **🔍 Review and revise** — Make changes until you're satisfied
 
-Click this link to automatically install and configure GitHub MCP for VS Code:
+### For Peer Feedback
 
-**[Install GitHub MCP Server](https://insiders.vscode.dev/redirect/mcp/install?name=github&config=%7B%22type%22%3A%20%22http%22%2C%22url%22%3A%20%22https%3A%2F%2Fapi.githubcopilot.com%2Fmcp%2F%22%7D)**
+Just say: **"Write feedback for [name]"**
 
-This will automatically add the GitHub MCP server to your VS Code configuration.
+Copilot will guide you through:
 
-#### Option B: Manual Configuration
-
-Create or update `~/Library/Application Support/Code/User/mcp.json`:
-
-```json
-{
-  "servers": {
-    "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {
-        "X-MCP-Toolsets": "default,copilot_spaces,copilot"
-      }
-    }
-  }
-}
-```
-
-This configuration:
-- Connects to the GitHub MCP server
-- Enables default tools, Copilot Spaces, and Copilot features
-- Uses your existing GitHub Copilot authentication automatically
-
-#### Workspace Configuration
-
-This repo includes a workspace-level `mcp.json` that ensures the GitHub MCP server is configured with the necessary toolsets (`copilot_spaces`) when you open this workspace. Your user-level configuration will still apply globally across all VS Code projects.
-
-### 2. Verify MCP is Working
-
-After creating the MCP configuration file, restart VS Code. MCP should automatically connect to the GitHub server.
-
-To verify it's working, open this workspace and check:
-- GitHub Copilot is active (bottom right corner)
-- No MCP connection errors in the Output panel (View → Output → GitHub Copilot)
-
-### 3. Authentication
-
-No additional authentication needed! The GitHub MCP server uses your existing GitHub Copilot authentication automatically. As long as you're signed into GitHub Copilot in VS Code, the MCP tools will work.
-
-### 4. Verify Setup
-
-Ask GitHub Copilot: "Can you list my GitHub Copilot Spaces?" 
-
-If the setup is working, you should see available spaces including:
-- **Reflection** - Official GitHub reflection guidance
-- **Peer & Manager Feedback** - Official GitHub feedback templates
+1. **📋 Pull official template** — Gets the 3-question format from Peer & Manager Feedback Space
+2. **💬 Prompt for details** — Projects together, strengths, growth areas
+3. **📝 Review your notes** — Confirm before drafting
+4. **✍️ Draft feedback** — Formatted to the official template
+5. **🔍 Revise as needed**
 
 ---
 
-## Writing Your Reflection
+## Copilot Spaces Used
 
-### Step 1: Gather Your GitHub Contributions
-
-Ask Copilot to pull your GitHub contributions for your reflection period:
-
-```
-"Pull my GitHub contributions from [START_MONTH] to [END_MONTH] [YEAR]"
-```
-
-**Example:** "Pull my GitHub contributions from October to November 2024"
-
-> **Note:** Specify the time window that matches your reflection period (typically 6 months for H1 or H2 reflections).
-
-This will create a file in `reflection/contributions/` with your:
-- Merged pull requests
-- Code reviews
-- Issues created/resolved
-- Repository contributions
-- Documentation updates
-
-### Step 2: Document Additional Accomplishments
-
-Fill out these files in `reflection/contributions/`:
-
-**`support-metrics.md`** (For Support Engineers)
-- Fill in your CSAT score (target ≥4.5)
-- Fill in your IR Met percentage (target ≥95%)
-- Document tickets solved and complexity vs squad baseline
-- Track escalations filed (break down by Sev1/Sev2/Other)
-- Note collaboration, documentation, and training contributions
-- Reference `support-expectations.md` for level-specific metric weights
-
-**`sparkle_tracking.md`**
-- Track internal recognition (Sparkles, kudos)
-- Note positive feedback received
-
-**`list_of_other_accomplishments.md`**
-- Non-GitHub accomplishments
-- Training sessions delivered
-- Cross-team collaborations
-- Process improvements
-- Mentoring activities
-- Security initiatives
-
-### Step 3: Draft Your Reflection
-
-Ask Copilot to help you draft your reflection:
-
-```
-"Help me draft my FY26 reflection using the official GitHub reflection questions"
-```
-
-Copilot will use:
-- Your contributions data
-- Official reflection questions from the **Reflection** Copilot Space
-- GitHub's performance philosophy
-- Your documented accomplishments
-
-Your draft will be saved in `reflection_draft/my_reflection_draft.md`
-
-### Step 4: Review and Refine
-
-The draft will answer the three official FY26 questions:
-1. **What results did you deliver, and how did you do it?**
-   - Quantified impact with metrics
-   - AI leverage examples
-   - Security contributions
-   - Culture alignment
-
-2. **Reflect on recent challenges - what did you learn and how did you apply a growth mindset?**
-   - Specific challenge described
-   - Actions taken with growth mindset
-   - How it shaped future approach
-
-3. **What are your goals for the upcoming period?**
-   - 3-5 SMART goals
-   - Business outcome focus
-   - Security and scalability alignment
-
-### Reference Files
-
-- `reflection/reflection-questions.md` - Official FY26 reflection questions
-- `reflection/performance-philosophy.md` - GitHub's performance framework
-- `reflection/reflection-experience-guide.md` - Comprehensive reflection guide
-- `reflection/contributions_template.md` - Template for organizing contributions
-
----
-
-## Providing Peer Feedback
-
-### Step 1: Create Notes File
-
-Copy the template for your recipient:
-
-```bash
-cp feedback/recipients/recipient_template.md feedback/recipients/[name]_notes.md
-```
-
-### Step 2: Gather Your Thoughts
-
-Fill out the template with:
-- **What they did really well** - Specific examples with impact
-- **Most important area to focus on** - Constructive feedback with context
-- **Projects you worked on together** - Collaboration examples
-- **Other notes** - Additional observations
-
-### Step 3: Generate Final Feedback
-
-Ask Copilot to help draft the final feedback:
-
-```
-"Using my notes in [name]_notes.md, write peer feedback for [name] using the official GitHub feedback template"
-```
-
-Copilot will use:
-- Your notes and examples
-- Official 3-question peer feedback format from the **Peer & Manager Feedback** Copilot Space
-- GitHub Values and Manager Fundamentals for framing
-- Appropriate tone and structure
-
-### Step 4: Review and Submit
-
-Your final feedback will be structured as:
-
-1. **What they did really well (with clear example)**
-2. **Most important thing to focus on (with clear example)**
-3. **Anything else to share**
-
-The feedback will be:
-- Specific and actionable
-- Grounded in GitHub Values
-- Professional and supportive
-- Impact-focused
-
-### Reference Files
-
-- `feedback/feedback-questions.md` - Official peer feedback template
-- `feedback/HR-feedback-page.md` - Feedback guidance and best practices
-- `feedback/recipient_template.md` - Template for organizing notes
+| Space | What It Provides |
+|-------|------------------|
+| [IC Reflections FY26](https://github.com/copilot/spaces/github/998) | Reflection questions, performance philosophy, GitHub values |
+| [Peer & Manager Feedback](https://github.com/copilot/spaces/github/50) | 3-question feedback template, Manager Fundamentals |
+| [Support Repository Reference](https://github.com/copilot/spaces/github/1106) | Career ladder, level expectations, promotion criteria |
 
 ---
 
 ## Workspace Structure
 
 ```
-.
-├── .copilot-instructions.md          # AI workspace guidance
-├── .gitignore                         # Keeps personal data private
-├── mcp.json                           # Workspace MCP configuration
-├── README.md                          # This file
-│
-├── feedback/
-│   ├── HR-feedback-page.md           # Official feedback guidance
-│   ├── feedback-questions.md         # 3-question peer template
-│   ├── recipient_template.md         # Template for organizing notes
-│   └── recipients/                   # Your feedback notes (gitignored)
-│       └── recipient_template.md     # Only this template is tracked
-│
-└── reflection/
-    ├── contributions/                 # Your contributions (gitignored)
-    │   ├── issue_docs_sparkle_tracking.md
-    │   ├── list_of_other_accomplishments.md
-    │   └── my_contributions_oct_nov_2025.md
-    │
-    ├── contributions_template.md      # Template for contributions
-    ├── performance-philosophy.md      # GitHub's performance framework
-    ├── reflection-experience-guide.md # Comprehensive guide
-    ├── reflection-questions.md        # Official FY26 questions
-    │
-    └── reflection_draft/              # Your drafts (gitignored)
-        └── my_reflection_draft.md
+.vscode/
+  mcp.json                 # Auto-configures GitHub MCP
+.github/
+  copilot-instructions.md  # Defines the guided workflows
+reflection/
+  contributions/
+    github_contributions.md      # Auto-generated
+    support-metrics.md           # Prompted from you
+    list_of_other_accomplishments.md
+reflection_draft/          # Generated reflection drafts
+feedback/
+  recipients/
+    recipient_template.md  # Template for new recipients
+    [name].md              # Your notes per person
+feedback_draft/            # Generated feedback drafts
 ```
 
 ---
 
-## Tips & Best Practices
+## Quick Commands
 
-### For Reflections
-
-✅ **Do:**
-- Pull contributions data early and review for accuracy
-- Document accomplishments as they happen (don't wait!)
-- Use specific metrics and measurable outcomes
-- Highlight AI usage, security focus, and culture alignment
-- Reference GitHub Values in your examples
-- Set SMART goals that align with team/org priorities
-
-❌ **Don't:**
-- Leave it to the last minute
-- Use vague language ("worked on several projects")
-- Forget to quantify impact
-- Skip the "how" - behaviors matter as much as results
-
-### For Feedback
-
-✅ **Do:**
-- Gather examples throughout the review period
-- Be specific with concrete situations
-- Balance strengths with growth areas
-- Frame feedback constructively and supportively
-- Ground observations in GitHub Values
-- Focus on impact and actionable suggestions
-
-❌ **Don't:**
-- Provide vague feedback ("great team player")
-- Only focus on negatives
-- Share feedback without specific examples
-- Make it personal - focus on behaviors and impact
-
-### Using AI Assistance
-
-- **Always review and validate** AI-generated content
-- Use AI to organize thoughts, not replace them
-- Ensure examples are accurate and specific
-- Add personal voice and authenticity
-- Human judgment is essential
-
-### Privacy & Git
-
-Personal files are gitignored:
-- `feedback/recipients/*` (except template)
-- `reflection/contributions/*`
-- `reflection_draft/*`
-
-This keeps your sensitive work private while maintaining useful templates and official guidance in version control.
+| Say This | Copilot Does |
+|----------|--------------|
+| "Start my reflection" | Full guided reflection workflow |
+| "Write feedback for [name]" | Full guided feedback workflow |
+| "Pull my contributions from July to December 2025" | Just pull GitHub data |
+| "Start fresh for next cycle" | Archive and reset for new period |
 
 ---
 
-## Getting Help
+## Starting a New Cycle
 
-- Ask Copilot: "Help me with my reflection" or "Help me write feedback for [name]"
-- Reference the **Reflection** Copilot Space for official guidance
-- Reference the **Peer & Manager Feedback** Copilot Space for feedback templates
-- Review HR documentation in the `feedback/` and `reflection/` folders
+Say: **"Start fresh for next cycle"**
 
----
+Or manually:
+```bash
+mkdir -p reflection_draft/archive/FY26-H1
+mv reflection_draft/*.md reflection_draft/archive/FY26-H1/
+```
 
-## Official Resources
-
-- [GitHub HR Zendesk - Reflections](https://github-hr.zendesk.com/)
-- [GitHub Values & Leadership Principles](https://github.com/github/handbook)
-- [Manager Fundamentals: Model-Coach-Care](https://github.com/github/handbook)
-- GitHub Copilot Spaces:
-  - `github/Reflection`
-  - `github/Peer & Manager Feedback`
+Then start a new reflection—Copilot will pull fresh data and check for updated questions.
 
 ---
 
-**Last Updated:** November 2025  
-**FY26 Reflection Cycle**
+## Tips
+
+- **Just start talking** — Say "Start my reflection" and follow the prompts
+- **Be specific with examples** — Copilot will ask follow-up questions if needed
+- **Review before submitting** — Always personalize AI-generated content
+- **One thing at a time** — The workflow handles complexity for you
+
+---
+
+**Questions?** Just ask Copilot: *"How do I use this workspace?"*
