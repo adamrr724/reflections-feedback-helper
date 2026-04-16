@@ -6,13 +6,15 @@ A guided workspace for writing performance reflections and peer feedback. Copilo
 
 ## Quick Start
 
+This clones the repository locally and then opens Visual Studio.
+
 ```bash
 git clone https://github.com/adamrr724/reflections-feedback-helper.git
 cd reflections-feedback-helper
 code .
 ```
 
-Then just say: **"Start my reflection"** or **"Write feedback for [name]"**
+Open this repo on your local computer using VS Code, start a Copilot chat window inside the repo, and then just say: **"Start my reflection"** or **"Write feedback for [name]"**
 
 ---
 
