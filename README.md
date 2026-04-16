@@ -16,6 +16,11 @@ code .
 
 Open this repo on your local computer using VS Code, start a Copilot chat window inside the repo, and then just say: **"Start my reflection"** or **"Write feedback for [name]"**
 
+Recommended Models:
+- Claude Opus 4.7
+- Claude Opus 4.6
+- Claude Sonnet 4.6
+  
 ---
 
 ## Prerequisites
