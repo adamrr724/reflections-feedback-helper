@@ -6,7 +6,7 @@ A guided workspace for writing performance reflections and peer feedback. Copilo
 
 ## Quick Start
 
-This clones the repository locally and then opens Visual Studio.
+Clones the repository locally and then open Visual Studio:
 
 ```bash
 git clone https://github.com/adamrr724/reflections-feedback-helper.git
