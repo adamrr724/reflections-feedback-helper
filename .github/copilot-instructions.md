@@ -88,7 +88,9 @@ Wait for user confirmation or edits.
 - Frame accomplishments in terms of how they demonstrate performance at or above their level
 - Draft answers to each reflection question
 - Save to `reflection_draft/reflection_[period].md`
-- Present the draft and ask:
+- **Display the full draft directly in the chat window** so the user can review without opening the file
+- Tell the user which file the draft was saved to (e.g., "Saved to `reflection_draft/reflection_jul-dec_2025.md`")
+- Ask:
 > "Here's your draft reflection. Would you like me to revise anything?"
 
 ---
@@ -124,7 +126,9 @@ Wait for user confirmation or edits.
 ### Step 5: Draft the Feedback
 - Format answers using the official 3-question template
 - Save to `feedback_draft/[name].md`
-- Present and ask if revisions are needed
+- **Display the full draft directly in the chat window** so the user can review without opening the file
+- Tell the user which file the draft was saved to (e.g., "Saved to `feedback_draft/vance.md`")
+- Ask if revisions are needed
 
 ---
 
