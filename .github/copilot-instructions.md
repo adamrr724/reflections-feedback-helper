@@ -4,6 +4,28 @@
 
 This workspace helps GitHub employees write performance reflections and peer feedback through a guided, interactive process. Copilot pulls real-time data from GitHub and references official guidance from Copilot Spaces.
 
+## First-Time Setup Check
+
+**Before starting any workflow**, check if the ADX integration is set up by verifying the Python virtual environment exists at `tools/.venv/`. If it does NOT exist, set it up for the user:
+
+> "Before we begin, let me set up the ADX integration so I can automatically pull your support metrics (CSAT, tickets, IR Met, escalations, etc.)."
+
+**Step 1: Install dependencies** — Run this directly in the terminal for the user (do NOT ask them to run it themselves):
+```bash
+cd tools && python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+```
+
+**Step 2: Azure authentication** — Tell the user:
+> "The MCP server needs your **@githubazure.com** credentials to access the ADX clusters. If you've already signed in via `az login` or the VS Code Azure extension with that account, you're all set. Otherwise, I can run `az login` for you — just confirm and sign in with your **@githubazure.com** email (not @github.com) when the browser opens."
+
+If the user confirms they need to authenticate, run `az login` in the terminal for them.
+
+**Step 3: Verify** — After setup, try listing ADX clusters to confirm the connection works. If it fails, refer the user to the troubleshooting section in the README.
+
+If `tools/.venv/` already exists, skip this and proceed directly to the requested workflow.
+
+---
+
 ## Required Copilot Spaces
 
 **ALWAYS query these Copilot Spaces for the latest official questions and guidance:**
@@ -263,6 +285,7 @@ feedback_draft/                  # Generated feedback drafts
 
 | User Says | Copilot Does |
 |-----------|--------------|
+| "Get started" / "Let's get started" | Run First-Time Setup Check, then ask what they'd like to do |
 | "Start my reflection" | Run guided reflection workflow |
 | "Write feedback for [name]" | Run guided feedback workflow |
 | "Pull my contributions from [dates]" | MCP pull only, save to contributions folder |
