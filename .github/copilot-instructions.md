@@ -100,19 +100,40 @@ Ask all three questions together so data pulls can start immediately:
 
 Once all three are provided, proceed to Step 3 immediately.
 
-### Step 3: Launch Data Pulls in Parallel
+### Step 3: Load Level Expectations FIRST (informs ADX pull)
+
+**Before launching ADX queries**, read the user's level-expectations doc from the cached careers directory so the metrics pull is tailored to what matters for their level:
+
+| User level | Cached file |
+|------------|-------------|
+| Support Engineer II/III/Senior (Technical) | `spaces_cache/support-repository-reference/careers/level-expectations/support-engineer-technical.md` |
+| Support Engineer (Enterprise) | `.../support-engineer-enterprise.md` |
+| Support Engineer (Premium) | `.../support-engineer-premium.md` |
+| Support Engineer (Security & Revenue) | `.../support-engineer-security-revenue.md` |
+| Staff Support Engineer | `.../staff-support-engineer.md` |
+| Senior Escalation Engineer | `.../senior-escalation-engineer.md` |
+| Support Delivery SE | `.../supportdelivery-SE-expectations.md` |
+
+Extract the **expectation areas emphasized at the user's level** (e.g., ticket complexity, priority/on-call, escalations/IC work, cross-squad contributions, mentoring, KB/enablement, engineering collaboration, customer tier handling). Keep those focus areas in context — they drive both (a) which ADX metrics to emphasize in Step 4 and (b) how to frame evidence in the draft.
+
+Also briefly read `spaces_cache/support-repository-reference/careers/level-expectations/Comparison-Metric-report.md` so the comparison guidance (squad/team/region slicers) matches how PowerBI users see it.
+
+### Step 4: Launch Data Pulls in Parallel
 
 **Kick off all automated data gathering simultaneously** using subagents or parallel tool calls. Do NOT wait for one to finish before starting the next.
 
 **In parallel:**
 
-#### 3a. GitHub MCP Pull (subagent)
+#### 4a. GitHub MCP Pull (subagent)
 - Use GitHub MCP to pull all contributions (PRs, reviews, issues, commits) for the period
 - Save to `reflection/contributions/github_contributions.md`
 - Auto-populate KB/documentation contributions, engineering issues, collaboration activity
+- **Level-tailored emphasis:** If the level expectations highlight engineering collaboration, mentoring, cross-squad reviews, or KB authoring, flag those contributions specifically in the output.
 
-#### 3b. ADX Metrics Pull (subagent)
-If ADX data is available (via Kusto MCP, Azure CLI, or user-provided query results), use the KQL queries in `reflection/adx_queries.md` to pull:
+#### 4b. ADX Metrics Pull (subagent, informed by level expectations)
+If ADX data is available (via Kusto MCP, Azure CLI, or user-provided query results), use the KQL queries in `reflection/adx_queries.md`. **Run the full metric suite, but prioritize and annotate results against the level's focus areas:**
+
+Core metrics (always pull):
 
 - **CSAT** — avg score, total surveys, rating breakdown (from `supportv3_ticket_csat_survey_fact`)
 - **IR Met / SLA compliance** — percentage and counts (from `supportv3_ticket_fact`)
@@ -127,6 +148,21 @@ If ADX data is available (via Kusto MCP, Azure CLI, or user-provided query resul
 - **Squad comparisons** — anonymous aggregate stats (avg, median, p25, p75) for CSAT, tickets, IR Met, escalations, and urgent/high tickets across your squad
 - **Team comparisons** — anonymous aggregate stats by support team
 - **Region comparisons** — anonymous aggregate stats by AMER/EMEA/APAC
+
+**Level-based emphasis** (annotate these as the "signal metrics" for the user's level):
+
+| Level focus area (from expectations doc) | ADX metric to highlight |
+|------------------------------------------|-------------------------|
+| Ticket complexity / independence | Avg handle time vs. squad, Premium Plus share, urgent ticket share |
+| Priority & on-call | `was_urgent` count, after-hours urgent tickets, IR Met on urgent |
+| Escalations to EPD | IC issue count, severity mix, EPD response time, escalations filed |
+| Cross-squad / cross-team contribution | Tickets outside primary squad, team breakdown |
+| Customer tier expectations | Premium Plus vs. Standard vs. Non-Premium breakdown |
+| Mentoring / onboarding | Zendesk CC/follower volume (signal of shadowing/coaching) |
+| Engineering collaboration | IC comment count, unique repos, KB/doc PRs |
+| Squad leadership (Senior/Staff) | % of squad volume, comparison to p75 |
+
+Do **not** hide core metrics even if they aren't emphasized at the level — present everything, but lead with the signal metrics.
 
 **Privacy Rule:** Comparative queries must ONLY return **aggregated, anonymous statistics** (averages, medians, percentiles). NEVER include names, handles, or individually identifiable data about other employees. All peer comparisons are group-level only.
 
@@ -143,16 +179,11 @@ If ADX data is available (via Kusto MCP, Azure CLI, or user-provided query resul
 3. If a Kusto MCP or CLI is available, run queries automatically and populate `support-metrics.md`
 4. If not, tell the user:
    > "I have KQL queries ready to pull your metrics from ADX. You can run them in [Kusto Web Explorer](https://dataexplorer.azure.com/) and paste the results here, or I can fill in what you tell me manually."
-5. Populate the ADX-sourced fields in `reflection/contributions/support-metrics.md`
+5. Populate the ADX-sourced fields in `reflection/contributions/support-metrics.md`, tagging which are the "signal metrics" for their level.
 
-#### 3c. Level Expectations (during parallel pulls)
-While data pulls run in the background:
-- Query the **Support Repository Reference** Space for expectations at their level
-- Keep these expectations in context to inform the reflection draft
+#### 4c. While Data Pulls Run — Ask for Additional Context
 
-#### 3d. While Data Pulls Run — Ask for Additional Context
-
-**Do not wait** for GitHub/ADX pulls to complete. While they run, immediately proceed to gather user input:
+**Do not wait** for GitHub/ADX pulls to complete. While they run, immediately proceed to gather user input. Shape the prompt around gaps the level expectations flagged (e.g., if mentoring is a signal area, ask about it explicitly):
 
 > "While I pull your GitHub contributions and ADX metrics, let me ask a few more questions..."
 
@@ -166,7 +197,7 @@ Then ask:
 
 If the user provides additional accomplishments, create `reflection/contributions/other_accomplishments.md` and save the responses there.
 
-### Step 4: Present All Gathered Data & Fill Gaps
+### Step 5: Present All Gathered Data & Fill Gaps
 
 Once all parallel pulls are complete, present a combined summary:
 
