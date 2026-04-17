@@ -46,9 +46,36 @@ If `tools/.venv/` already exists, skip Steps 1–2 and go directly to Step 3 (ve
 |-------|-----|---------|
 | **IC Reflections FY26** | https://github.com/copilot/spaces/github/998 | Official reflection questions, performance philosophy, GitHub values |
 | **Peer & Manager Feedback** | https://github.com/copilot/spaces/github/50 | Official 3-question feedback template, Manager Fundamentals |
-| **Support Repository Reference** | https://github.com/copilot/spaces/github/1106 | Support career ladder, level expectations, promotion criteria |
+| **Support Repository Reference** | https://github.com/copilot/spaces/github/1106 | Support career ladder, level expectations, promotion criteria. Backed by the entire [github/support](https://github.com/github/support) repository — query it directly (via GitHub MCP or `mcp_github_get_copilot_space`) for ladder docs, role definitions, processes, and team guidance. |
 
 **CRITICAL:** Always pull the latest from these Spaces before starting any workflow.
+
+---
+
+## Spaces Cache Management
+
+Official Copilot Spaces content is cached locally in `spaces_cache/` at the workspace root. Each Space has its own subdirectory; one Space may contribute multiple documents.
+
+| Source Space | Cache Directory | Primary File(s) |
+|--------------|-----------------|-----------------|
+| IC Reflections FY26 (github/998) | `spaces_cache/ic-reflections-fy26/` | `reflection-questions.md` |
+| Peer & Manager Feedback (github/50) | `spaces_cache/peer-manager-feedback/` | `peer-feedback-questions.md` |
+| Support Repository Reference (github/1106) | `spaces_cache/support-repository-reference/` | `careers/` directory from [github/support](https://github.com/github/support) — includes `level-expectations/`, `promotion/`, `hiring/`, `onboarding/`, `training/`. Use these local files first; fall back to live GitHub MCP queries against `github/support` for content outside the `careers/` tree. |
+
+When a Space returns multiple documents, save each as a separate file inside that Space's subdirectory using a clear, descriptive filename. Cross-cutting reference material (GitHub Mission & Values, Manager Fundamentals, Leadership Principles) currently lives under `spaces_cache/peer-manager-feedback/` and should be referenced from both reflection and feedback workflows to ground language in GitHub Values and Leadership Principles.
+
+**Load order for every workflow:**
+
+1. **Try live fetch first.** Call `mcp_github_get_copilot_space` for the relevant Space. If it succeeds and returns readable content:
+   - Compare against the cached file. If content differs (or no cache exists), **overwrite the cache file** with the fresh content and briefly tell the user: "I refreshed the cached [questions/template] from the [Space name] Space."
+   - Use the fresh content for the workflow.
+2. **Fall back to cache.** If the live fetch fails, returns unresolvable URIs, or is unavailable in the current agent mode, read the corresponding `spaces_cache/*.md` file and proceed. Do not block the workflow on a failed fetch.
+3. **No cache + no live fetch.** Ask the user to paste the content, then save it to the correct `spaces_cache/*.md` path for future runs.
+
+**Rules:**
+- Never silently skip the live-fetch attempt — always try it first so the cache stays current.
+- Only overwrite a cache file when you have successfully retrieved fresh Space content.
+- Keep cache files as clean markdown (questions and guidance only, no metadata wrappers).
 
 ---
 
@@ -57,9 +84,10 @@ If `tools/.venv/` already exists, skip Steps 1–2 and go directly to Step 3 (ve
 When a user says **"Help me write my reflection"** or **"Start my reflection"**, follow this interactive process:
 
 ### Step 1: Pull Official Guidance
-- Query the **IC Reflections FY26** Space to get the latest reflection questions and writing guidance
-- Query the **Support Repository Reference** Space for level expectations (if applicable)
-- Confirm to the user what questions they'll be answering
+
+Follow the **Spaces Cache Management** protocol (see section below) to load the reflection questions from `spaces_cache/ic-reflections-fy26/` (and any relevant files in `spaces_cache/support-repository-reference/`), attempting a refresh from the **IC Reflections FY26** Space (github/998) and the **Support Repository Reference** Space (github/1106) when possible.
+
+Confirm to the user what questions they'll be answering before proceeding.
 
 ### Step 2: Collect Required Info (All Upfront)
 
@@ -186,8 +214,10 @@ Wait for user confirmation or edits.
 When a user says **"Write feedback for [name]"** or **"Start feedback for [name]"**, follow this interactive process:
 
 ### Step 1: Pull Official Template
-- Query the **Peer & Manager Feedback** Space for the latest 3-question template
-- Confirm the questions to the user
+
+Follow the **Spaces Cache Management** protocol (see section below) to load the feedback template from `spaces_cache/peer-manager-feedback/`, attempting a refresh from the **Peer & Manager Feedback** Space (github/50) when possible.
+
+Confirm the questions to the user before proceeding.
 
 ### Step 2: Collect Required Info (Upfront)
 
@@ -266,6 +296,12 @@ Wait for user confirmation or edits.
 ## Workspace Structure
 
 ```
+spaces_cache/                    # Cached Copilot Spaces content (auto-refreshed, one subdir per Space)
+  ic-reflections-fy26/
+    reflection-questions.md
+  peer-manager-feedback/
+    peer-feedback-questions.md
+  support-repository-reference/   # Optional ladder/level docs
 reflection/
   contributions_template.md      # Template for GitHub contributions
   support-metrics_template.md    # Template for support metrics

@@ -1,0 +1,66 @@
+# Access Squad Training Materials
+
+A repository of Access Squad Essentials training module referenced documentation links.
+
+- ### General Information
+  -  [Support Ticket Handling Documentation](../ticket-processes/README.md)
+  -  [Zendesk Ticket Categories](https://github.com/github/zendesk/blob/master/support/categories/categories.csv)
+  -  [Routing Tickets outside of Support](../ticket-processes/triage.md)
+  -  [Routing Tickets to Sales/Bridge Team](../ticket-processes/transfer-to-sales.md)
+  -  [Access Squad Repo](https://github.com/github/support-squad-access)
+  -  [Squad Sponsor Responsibilities](https://github.com/github/support/issues/1391)
+  -  [Support Escalations Team](https://github.com/github/support-escalations#who-we-are)
+  -  [Engineering Support Catalog](https://catalog.githubapp.com/services)
+- ### Access Squad Coverage
+  - #### Enterprise Administration
+    - Enterprise/Organization/Team/Repository roles & permissions
+      - [Enterprise roles](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise)
+      - [Organization roles](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)
+      - [GitHub Teams](https://docs.github.com/en/enterprise-cloud@latest/organizations/organizing-members-into-teams/about-teams) 
+    - Enterprise Managed Users
+      - [Getting started with Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)
+    - User/member management
+      - [Managing organization members in your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-organization-members-in-your-enterprise)
+    - Member Reports & User Activity/Dormancy
+      - [Enterprise Membership Export](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)
+      - [Organization Membership Export](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization#about-export-of-membership-information)
+      - [Enterprise User Dormancy](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-dormant-users)
+      - [GHES Reports](https://docs.github.com/en/enterprise-server@3.10/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/accessing-reports-for-your-instance)
+    - [IP Allow Lists](https://docs.github.com/en/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)
+  - #### Authentication, Provisioning, and Team Sync
+    - SAML/LDAP/OIDC/CAS/Built-In Authentication
+      - [GHEC Enterprise Level Authentication Options](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)
+      - [GHEC Organization Level SAML](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)
+      - [Enterprise Managed Users (EMU) - OIDC or SAML](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)
+      - [GHES Authentication Options](https://docs.github.com/en/enterprise-server@3.10/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)
+        - [GHES 2FA](https://docs.github.com/en/enterprise-server@3.12/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+          - All other 2FA issues (in GHEC are routed to S&R)
+    - Provisioning
+      - [SCIM for Organizations](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)
+      - [SCIM for Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)
+      - [SCIM for GHES](https://docs.github.com/en/enterprise-server@3.12/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)
+    - Team Synchronization
+      - [Team Synchronization for an Organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)
+      - [Team Synchronization for all Organizations within an Enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)
+      - [Syncing Teams to an external IDP Group in an EMU enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)
+        - [Enterprise Teams](https://docs.github.com/en/enterprise-cloud@latest/early-access/copilot/managing-copilot-business-licenses-with-an-enterprise-account) (Copilot standalone team sync)
+      - [LDAP User and Team Sync](https://docs.github.com/en/enterprise-server@latest/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)
+    - [Classic and Fine Grained Personal Access Tokens](https://docs.github.com/en/enterprise-cloud@latest/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+      - [Authorizing a Personal Access Token for use within an organization](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)
+    - [SSH](https://docs.github.com/en/enterprise-cloud@latest/authentication/connecting-to-github-with-ssh/about-ssh), [Deploy Keys](https://docs.github.com/en/enterprise-server@3.10/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys), [OAuth Tokens](https://docs.github.com/en/enterprise-server@3.10/authentication/connecting-to-github-with-ssh/managing-deploy-keys#https-cloning-with-oauth-tokens)
+  - #### Audit Logs
+    - Audit Logs & Logs Requests
+      - Caveat: we help with the audit log feature itself, but questions/issues about individual events/logging are handled by each respective squad (IE downloading a repo would be an event covered by worktent).
+    - [Enterprise Audit Logs](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)
+    - [Organization Audit Logs](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)
+    - Internal Doc: [Responding to Log Requests](https://support-kb.githubapp.com/support/access/security-and-audit-logs/log-requests/responding-to-log-requests/)
+    - [Audit Log Streaming](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)
+  - #### Enterprise Licensing
+    - GHEC/GHES/Visual Studio License Troubleshooting
+      - [GitHub Enterprise Licensing](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)
+      - [Enterprise License Troubleshooting](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise)
+      - [About Visual Studio Licenses with GitHub Enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise)
+      - [Syncing GHEC & GHES Licenses](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)
+        - Caveat: the actual GitHub Connect feature is managed by ecosystem, we only care about the license itself and how they essentially become consumed at the Enterprise Account.
+      - [Per-User Licensing](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#accounts-that-consume-a-license-on-github-enterprise-cloud)
+
