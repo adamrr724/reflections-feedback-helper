@@ -14,43 +14,18 @@ cd reflections-feedback-helper
 code .
 ```
 
-### 2. Set Up ADX Integration (Optional but Recommended)
+### 2. Say "Let's get started" in Copilot Chat
 
-The workspace includes a custom MCP server that queries Azure Data Explorer for your support metrics (CSAT, tickets, IR Met, escalations, collaboration data). To use it:
+That's it. Copilot will:
 
-**a. Create a Python virtual environment:**
+1. **Set up the ADX integration** — creates the Python environment and installs dependencies automatically
+2. **Check your Azure auth** — if you need to sign in, it'll run `az login` for you (sign in with your **@githubazure.com** email when the browser opens)
+3. **Verify both MCP connections** (ADX + GitHub) — if something isn't working, it'll offer to troubleshoot or let you skip and continue manually
+4. **Ask what you'd like to do** — start a reflection, write peer feedback, or just pull contributions
 
-```bash
-cd tools
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+> **Recommended models:** Claude Opus 4.7, Claude Opus 4.6, or Claude Sonnet 4.6
 
-**b. Authenticate with Azure:**
-
-The MCP server uses your Azure credentials to connect to ADX. On first use, it will open a browser window for authentication.
-
-> **Important:** You must sign in with your **@githubazure.com** email address. This is the identity that has access to the ADX clusters (`gh-analytics.eastus.kusto.windows.net` and `dotcomro.eastus2.kusto.windows.net`). Your regular `@github.com` email will not work.
-
-If you've previously authenticated with the Azure CLI or VS Code Azure extension using your `@githubazure.com` account, the MCP server will pick up those credentials automatically. Otherwise, it falls back to an interactive browser login.
-
-**c. Verify it works:**
-
-After setup, VS Code will automatically start the MCP server when Copilot needs it (configured in `.vscode/mcp.json`). You can verify the connection by asking Copilot:
-
-> "List the available ADX clusters"
-
-If you see `gh-analytics` and `dotcomro`, you're good to go.
-
-### 3. Start Using It
-
-Open a Copilot chat window and say:
-
-- **"Start my reflection"** — Full guided reflection workflow
-- **"Write feedback for [name]"** — Full guided peer feedback workflow
-
-Recommended models: **Claude Opus 4.7**, **Claude Opus 4.6**, or **Claude Sonnet 4.6**
+### That's the whole setup. Everything below is reference material.
 
 ---
 
@@ -169,10 +144,10 @@ feedback_draft/                  # Generated feedback drafts
 
 | Say This | Copilot Does |
 |----------|--------------|
+| "Let's get started" | Set up ADX, verify connections, ask what you'd like to do |
 | "Start my reflection" | Full guided reflection workflow |
 | "Write feedback for [name]" | Full guided feedback workflow |
 | "Pull my contributions from July to December 2025" | Just pull GitHub data |
-| "List the available ADX clusters" | Verify ADX connection works |
 | "Start fresh for next cycle" | Archive and reset for new period |
 
 ---
@@ -193,8 +168,9 @@ Then start a new reflection — Copilot will pull fresh data and check for updat
 
 ## Tips
 
-- **Just start talking** — Say "Start my reflection" and follow the prompts
+- **Just say "let's get started"** — Copilot handles all setup and walks you through everything
+- **No terminal commands needed** — Copilot runs everything for you (venv, pip, az login)
 - **Verify your numbers** — Always cross-reference ADX data against Zendesk, PowerBI, and Medallia
-- **ADX is optional** — If the MCP server isn't set up, Copilot will ask you for metrics manually
+- **ADX is optional** — If the MCP server isn't working, Copilot will ask you for metrics manually
 - **Review before submitting** — Always personalize AI-generated content
 - **Links are included** — Zendesk ticket links and GitHub URLs are provided where available

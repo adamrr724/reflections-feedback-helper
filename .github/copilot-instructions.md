@@ -20,9 +20,21 @@ cd tools && python3 -m venv .venv && source .venv/bin/activate && pip install -r
 
 If the user confirms they need to authenticate, run `az login` in the terminal for them.
 
-**Step 3: Verify** — After setup, try listing ADX clusters to confirm the connection works. If it fails, refer the user to the troubleshooting section in the README.
+**Step 3: Verify MCP connections** — After setup (or if `tools/.venv/` already exists), verify **both** MCP servers are connected before proceeding:
 
-If `tools/.venv/` already exists, skip this and proceed directly to the requested workflow.
+1. **ADX MCP** — Try listing ADX clusters (e.g., call `list_clusters`). If it returns `gh-analytics` and `dotcomro`, ADX is working.
+2. **GitHub MCP** — Try a simple GitHub MCP call (e.g., `get_me` to fetch the authenticated user). If it returns a valid user, GitHub MCP is working.
+
+**If both succeed:** Confirm to the user and proceed to the requested workflow.
+
+**If one or both fail:** Tell the user which connection(s) failed and offer two options:
+> "It looks like **[ADX/GitHub/both]** MCP isn't connected yet. I can help troubleshoot this, or you can skip it and we'll work with whatever data you can provide manually. What would you prefer?"
+
+- **Troubleshoot ADX:** Check Azure auth (`az login`), verify the MCP server config in `.vscode/mcp.json`, refer to README troubleshooting section.
+- **Troubleshoot GitHub:** Verify the GitHub MCP server is enabled in VS Code's MCP settings, check that the `github` server entry in `.vscode/mcp.json` is correct.
+- **Skip:** Continue without the failed integration — note which data will need to be provided manually (ADX metrics, GitHub contributions, or both) and adjust the workflow accordingly.
+
+If `tools/.venv/` already exists, skip Steps 1–2 and go directly to Step 3 (verify connections).
 
 ---
 
