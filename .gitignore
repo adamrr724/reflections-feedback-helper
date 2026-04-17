@@ -6,3 +6,6 @@ feedback_draft/*
 # Ignore personal contributions and reflection drafts
 reflection/contributions/*
 reflection_draft/*
+
+# Python virtual environment
+tools/.venv/

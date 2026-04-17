@@ -6,6 +6,11 @@
       "headers": {
         "X-MCP-Toolsets": "default,copilot_spaces,copilot"
       }
+    },
+    "azure-data-explorer": {
+      "command": "${workspaceFolder}/tools/.venv/bin/python3",
+      "args": ["${workspaceFolder}/tools/mcp_kusto_readonly_server.py"],
+      "tools": ["*"]
     }
   }
 }
