@@ -282,15 +282,25 @@ Use the GitHub MCP to find shared GitHub activity:
 
 #### 3c. While Data Pulls Run — Ask for Feedback Details
 
-**Do not wait** for ADX/GitHub pulls to complete. While they run, immediately ask:
+**Do not wait** for ADX/GitHub pulls to complete. While they run, immediately ask — and make clear that **responses don't need to be formal; you'll clean them up later**:
 
-1. > "While I pull your collaboration data with **[name]**, let me ask some questions..."
-2. > "What projects did you work on with **[name]**?"
-3. > "What did **[name]** do really well? Can you give a specific example?"
-4. > "What's one thing **[name]** could focus on to improve? Any specific situation?"
-5. > "Anything else you'd like to mention about working with **[name]**?"
+> "While I pull your collaboration data with **[name]**, tell me whatever comes to mind — bullets, rough notes, fragments are fine. It doesn't need to be polished; I'll shape it into the final feedback. A few things to cover:
+>
+> - Projects or tickets you worked on together (names/links work)
+> - Something **[name]** does well — a skill, habit, or moment that stood out
+> - Something they could grow in — a pattern you've noticed
+> - Anything else about working with them — tone, collaboration style, a specific interaction"
 
-Save responses to `feedback/recipients/[name].md`.
+If it's **manager feedback**, use the Model/Coach/Care + DI&B prompts instead, with the same framing:
+
+> "Same thing — rough notes are fine, I'll polish it:
+>
+> - Something they do well in **Model / Coach / Care**
+> - Something they could improve in **Model / Coach / Care**
+> - What you value most about working with them
+> - Which DI&B priority they most exemplify (inclusion modeling / bias awareness / diverse hiring & career acceleration)"
+
+Save whatever the user gives you — however rough — to `feedback/recipients/[name].md`.
 
 ### Step 4: Present Collaboration Data & Review
 
