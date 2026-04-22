@@ -368,6 +368,22 @@ feedback_draft/                  # Generated feedback drafts
 - **Use paragraphs** — Avoid excessive bullet points in final output
 - **Quantify** — Numbers make impact tangible
 
+### Workday-compatible output (REQUIRED for reflection and feedback drafts)
+
+Final reflection and feedback drafts are pasted into Workday, which does **not** render markdown. Follow these rules for any draft saved to `reflection_draft/` or `feedback_draft/`:
+
+- **No markdown syntax.** No `#` headings, no `**bold**`, no `*italics*`, no `> blockquotes`, no ``backticks``, no `[text](url)` link syntax, no `|` tables, no `---` separators.
+- **Plain section labels.** Use labels like `Question 1:` or `Goals:` on their own line, optionally followed by a blank line. Do not use markdown heading characters.
+- **Emphasis via ALL CAPS or punctuation**, sparingly — e.g., `IR Met: 83% (target 95%)` rather than `**IR Met: 83%**`.
+- **Links as bare URLs.** Paste `https://github.com/github/support/issues/2449` directly in the sentence, not as `[#2449](...)`.
+- **Lists.** Use a single leading hyphen followed by a space (`- item`) or numbered lists (`1. item`) — these survive the paste. Avoid nested bullets.
+- **Inline code / file paths** — render as plain text (no backticks).
+- **Paragraphs over bullets** for narrative sections (Q1, Q2). Bullets are fine for the goals list.
+- **One blank line between paragraphs** — double blank lines are fine as visual separators but avoid rule lines (`---`).
+- **Keep a metadata block at the top** as plain labeled lines (e.g., `Period: October 15, 2025 – April 17, 2026`), not a markdown front-matter block.
+
+Exploratory material (support-metrics.md, contributions files, in-chat analysis) can still use markdown freely — only the final `reflection_draft/*.md` and `feedback_draft/*.md` files must be Workday-ready plain text.
+
 ---
 
 ## Quick Commands
