@@ -1,8 +1,7 @@
-# Peer & Manager Feedback Questions
-
+--- Document 4: texts/peer-feedback-questions.md (914 B) ---
 ## Overview
 
-Feedback is an important part of the way we learn and grow at GitHub. Effective Feedback is specific, grounded in our Leadership Principles, and helps us develop a formal understanding of where Hubbers are in terms of their performance, development, and career.
+Feedback is an important part of the way we learn and grow at GitHub. Effective Feedback is specific, grounded in our Leadership Principles, and helps us develop a formal understanding of where Hubbers are in terms of their performance, development, and career. 
 In the following area please provide feedback on the Hubber identified above.
 
 If you lack context to respond to any of the questions submitted, you can decline an individual question or all of them. Additionally, you can opt to share Feedback directly and outside of the tool.

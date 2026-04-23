@@ -1,5 +1,4 @@
-# Manager Feedback Questions
-
+--- Document 5: texts/manager-feedback-questions.md (1.3 KB) ---
 ## Overview
 
 Feedback is an important part of the way we learn and grow at GitHub. Effective feedback is specific, grounded in our Leadership Principles, and helps us develop a formal understanding of where Hubbers are in terms of their performance, development, and career.
@@ -18,8 +17,10 @@ Taking into consideration the Manager Fundamentals (Model-Coach-Care), please sh
 The thing I value the most about working with my manager is:
 
 ### Question 4
-Taking into consideration GitHub's Diversity, Inclusion & Belonging Priority, which of the following Manager DIB priorities do you feel your Manager exemplifies on a regular basis?
+Taking into consideration GitHub's Diversity, Inclusion &amp; Belonging Priority, which of the following Manager DIB priorities do you feel your Manager exemplifies on a regular basis?
 
 - Models inclusion, practicing awareness and regularly practices a growth mindset
+
 - Actively reflects on and mitigates personal biases within talent discussions, rewards, role assignments, and development opportunities.
-- Intentionally attracts and hires diverse talent; proactively holds stay conversations, and supports career acceleration.
+
+- Intentionally attracts and hires diverse talent; proactively holds stay conversations, and supports career acceleration. 
