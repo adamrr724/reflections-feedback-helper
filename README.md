@@ -6,13 +6,18 @@ A guided workspace for writing performance reflections and peer feedback. Copilo
 
 ## Quick Start
 
-### 1. Clone and Open
+### 1. Clone and Open in VS Code
 
 ```bash
 git clone https://github.com/adamrr724/reflections-feedback-helper.git
-cd reflections-feedback-helper
-code .
 ```
+
+Then open the `reflections-feedback-helper` folder in VS Code using whichever option works for you:
+
+- **VS Code menu:** `File` → `Open Folder…` and pick the cloned directory
+- **Drag & drop:** drag the `reflections-feedback-helper` folder onto the VS Code app icon or window
+- **Terminal (only if you have the `code` command installed):** `cd reflections-feedback-helper && code .`
+  - Don't have `code` yet? In VS Code, open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and run **Shell Command: Install 'code' command in PATH**
 
 ### 2. Say "Let's get started" in Copilot Chat
 
